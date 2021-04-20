@@ -15,48 +15,53 @@ function woodCalculator(chair, table, khat) {
     return totalWood;
 }
 var needTotalWood = woodCalculator(2, 2, 1);
-console.log("Your total wood nened ", needTotalWood, "Qbit Feet");
+console.log("Your total wood needed ", needTotalWood, "Qbit Feet");
 
-3. Brick Calculator
+// 3. Brick Calculator
 
 function brickCalculator(tala) {
-    if (tala <= 10 && tala > 0 || tala == 0) {                 // 1 to 10 tala 15 feet & per feet brick needed 1000
-        var brick = 15 * 1000;
-        var totalBrick = tala * brick;
-        return totalBrick;
+    var totalBrick = 0;
+    if (tala <= 10) {                                           // 1 to 10 tala 15 feet & per feet brick needed 1000
+        var firstTen = tala * 15000;
+        totalBrick = firstTen;
+
     }
     else if (tala <= 20) {                                      // 11 to 20 tala 12 feet & per feet brick needed 1000
-        var brick = 12 * 1000;
-        var totalBrick = tala * brick;
-        return totalBrick;
+        var tenTala = 10 * 15000;
+        var remainTala = tala - 10;
+        var twentyTala = remainTala * 12000;
+        totalBrick = twentyTala + tenTala;
     }
-    else{                                                        // 21 to random number 10 feet  & per feet brick neeede 1000
-        var brick = 10 * 1000;
-        var totalBrick = tala * brick;
-        return totalBrick;
+    else {                                                        // 21 to random number 10 feet  & per feet brick neeede 1000
+        var tenTala = 10 * 15000;
+        var twentyTala = 10 * 12000;
+        var remainTala = tala - 20;
+        var upToTwentyTala = remainTala * 10000;
+        totalBrick = upToTwentyTala + tenTala + twentyTala;
     }
-
+    return totalBrick;
 }
 
-var totalBrick = brickCalculator(100);
-console.log(totalBrick);
+var result = brickCalculator(5);
+console.log(result);
 
-4. Tyne Friend
+// 4. Tyne Friend
 
-function tyneFriend(frindsName) {
-    var min = 0;
-    for (let i = 0; i < frindsName.length; i++) {
-        const element = frindsName[i];
-        
-        if (element < min) {
-            element = min;
+function tyneFriend(friendsName) {
+    var sortName = '';
+    for (var i = 0; i < friendsName.length; i++) {
+        if (sortName.length == 0) {
+            sortName = friendsName[i];
+        }
+        if (friendsName[i].length < sortName.length) {
+            sortName = friendsName[i];
         }
     }
-    return min
+    return sortName;
 }
-var frindsName = [20, 32, 54, 69, 52, 16];
-var result = tyneFriend(frindsName)
+var friendsName = ["Jahid", "Nasir", "Mia", "Arafat", "Muhmudul", "Rasel Ahamed"];
+var smallName = tyneFriend(friendsName);
 
-console.log(result)
+console.log(smallName);
 
 
