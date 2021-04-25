@@ -1,27 +1,41 @@
 // 1. Feet to Mile
 function feetToMile(feet) {
-    var mile = feet / 5280;  // 1 miles = 5280 Feet
-
-    return mile;
+    if (feet < 0) {
+        return "Please!! enter valid input"
+    }
+        var mile = feet / 5280;  // 1 miles = 5280 Feet
+        return "Mile: " + mile;
 }
 var feet = 5280;
-var result = feetToMile(feet);
-console.log(result, " Mile");
+var totalMile = feetToMile(feet);
+console.log(totalMile)
 
 // 2. Wood Calculator
 
-function woodCalculator(chair, table, khat) {
-    var totalWood = ((chair * 1) + (table * 3) + (khat * 5));  //1 chair = 1 qbit Feet, 1 table = 3 qbit Feet, khat = 5 qbit Feet
-    return totalWood;
+function woodCalculator(chair, table, bed) {
+    if((chair < 0) || (table < 0) || (bed < 0)){
+        return "Please!! enter valid input"
+    }
+        var totalWood = ((chair * 1) + (table * 3) + (bed * 5));  //1 chair = 1 qbit Feet, 1 table = 3 qbit Feet, khat = 5 qbit Feet
+        return "Total Wood needed: " + totalWood + " fit";
+  
 }
-var needTotalWood = woodCalculator(2, 2, 1);
-console.log("Your total wood needed ", needTotalWood, "Qbit Feet");
+var Chair_Count = 2;
+var table_Count = 2;
+var bed_Count = 3;
 
-// 3. Brick Calculator
+var totalWood = woodCalculator(Chair_Count, table_Count, bed_Count);
+console.log(totalWood);
+
+
+// // 3. Brick Calculator
 
 function brickCalculator(tala) {
     var totalBrick = 0;
-    if (tala <= 10) {                                           // 1 to 10 tala 15 feet & per feet brick needed 1000
+    if(tala < 0){
+        return "Please!! enter valid input"
+    }
+    else if (tala <= 10) {                                           // 1 to 10 tala 15 feet & per feet brick needed 1000
         var firstTen = tala * 15000;
         totalBrick = firstTen;
 
@@ -39,7 +53,7 @@ function brickCalculator(tala) {
         var upToTwentyTala = remainTala * 10000;
         totalBrick = upToTwentyTala + tenTala + twentyTala;
     }
-    return totalBrick;
+    return "Needed Brick " + totalBrick;
 }
 
 var result = brickCalculator(5);
